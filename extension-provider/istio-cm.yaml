@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: istio
+  namespace: istio-system
+data:
+  mesh: |-
+    # Add the following content to define the external authorizers.
+    extensionProviders:
+    - name: "sample-ext-authz-grpc"
+      envoyExtAuthzGrpc:
+        service: "ext-authz-grpc.local"
+        port: "9000"
